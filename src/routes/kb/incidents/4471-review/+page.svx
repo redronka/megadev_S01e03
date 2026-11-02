@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 — dwie przyczyny błędnych dat'
 owner: support desk
-status: proposed
+status: closed
 reviewed: '2026-11-02'
 signature: 'S01E03 · redronka · Codex'
 ---
@@ -13,6 +13,15 @@ signature: 'S01E03 · redronka · Codex'
   import DedupeExplorer from '#lib/kb/DedupeExplorer.svelte';
   import RenderStamp from '#lib/kb/RenderStamp.svelte';
 </script>
+
+## Aktualny wynik prac
+
+Aktualizacja obsługi na [stronie kursu](https://hq.mega.dev/challenges/what-it-shows#engineering-update), odczytana 2026-11-02, podaje: **#4471 · closed 05 oct**.
+
+- **parser — FIXED**: `fix(dates): parse dd/mm for eu locales`. [Zgłoszenie parser](https://github.com/redronka/megadev_C03/issues/1) należy zamknąć jako `completed`.
+- **hint — WON'T FIX**: `booking-v3 form retired`. [Zgłoszenie hint](https://github.com/redronka/megadev_C03/issues/2) należy zamknąć jako `not planned`. Formularz wycofano; nie jest to naprawa jego podpowiedzi.
+
+Tabela i wykres poniżej opisują historyczny eksport z 2026-10-04. Liczby raportów nie zmieniają się po zamknięciu. Tekst komponentu o braku osobnego zgłoszenia dotyczy stanu w tym eksporcie, a nie aktualnego stanu naszych zgłoszeń GitHub.
 
 ## Ustalenia
 
