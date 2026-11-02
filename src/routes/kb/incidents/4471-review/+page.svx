@@ -4,7 +4,7 @@ title: '#4471 — dwie przyczyny błędnych dat'
 owner: support desk
 status: closed
 reviewed: '2026-11-02'
-signature: 'S01E03 · redronka · Codex'
+signature: "v1.eyJzdWIiOiI0OTY5IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTM2MTU5MDQsImV4cCI6MTc5MzcwMjMwNH0.wXygo2433JFAgp31NP9eERtoCTWYVEVCgeJ8bo6OA-s"
 ---
 
 <script>
