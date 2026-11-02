@@ -1,0 +1,47 @@
+---
+layout: runbook
+title: '#4471 — dwie przyczyny błędnych dat'
+owner: support desk
+status: proposed
+reviewed: '2026-11-02'
+signature: 'S01E03 · redronka · Codex'
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
+  import DedupeExplorer from '#lib/kb/DedupeExplorer.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+## Ustalenia
+
+Zgłoszenie #4471 łączy dwa różne problemy. Status „known” i opis jednego błędu nie odpowiadają klasyfikacji uruchamianej przez komponenty bazy wiedzy.
+
+<CauseTable ticket={4471} />
+
+`parser`: wspólny parser czyta miesiąc przed dniem, choć klient zapisuje dzień przed miesiącem.
+
+`hint`: formularz booking-v3 pokazuje MM/DD/YYYY, ale odczytuje wpis według formatu klienta z dniem przed miesiącem.
+
+Pięć raportów opisanych przez obsługę jako przesunięcie o jeden dzień pozostaje w grupie parser. To przypis do klasyfikacji, a nie dowód osobnej przyczyny.
+
+## Liczenie i źródła
+
+Źródłem jest eksport bazy wiedzy z 2026-10-04. `uniqueById` usuwa powtórzenia identyfikatorów. `CauseTable` ogranicza dane do #4471. `causeOf` używa kanału raportu oraz locale i wersji formularza klienta z katalogu `tenants`. Etykieta wejściowa i locale przeglądarki nie rozstrzygają przyczyny.
+
+## Napływ raportów i scalanie
+
+<QueueTimeline ticket={4471} />
+
+Data otrzymania raportu i data scalenia opisują różne zdarzenia. Słupek scalania nie oznacza napływu nowych raportów.
+
+## Reguła dla obsługi
+
+Sprawdź klienta, kanał i formularz. Łącz raporty tylko po potwierdzeniu wspólnej przyczyny. Brak klienta w katalogu wymaga wyjaśnienia; wspólny temat nie wystarcza.
+
+<DedupeExplorer />
+
+Decyzja 0001 pozostaje historycznym, zaakceptowanym dokumentem. Jej reguła scalania po temacie nie jest bezpieczną podstawą dalszej obsługi. Nowa decyzja powinna ją zastąpić po zatwierdzeniu przez obsługę.
+
+<RenderStamp {signature} />
